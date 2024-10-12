@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">BettingInfo</string>
+    <string name="generic_error">Niečo sa pokazilo</string>
+    <string name="file_not_found_error">Súbor nebol nájdený</string>
+    <string name="serialization_error">Chyba pri parsovaní súboru</string>
+    <string name="reading_error">Chyba pri čítaní súboru</string>
+    <string name="sports">Športy</string>
+    <string name="win">Víťazstvo</string>
+    <string name="draw">Remíza</string>
+    <string name="lose">Prehra</string>
+    <string name="win_draw">Víťazstvo/Remíza</string>
+    <string name="lose_draw">Remíza/Prehra</string>
+    <string name="win_lose">Víťazstvo/Prehra</string>
+    <string name="double_chance">Dvojitá šanca</string>
+    <string name="region">Región</string>
+    <string name="sport">Šport</string>
+    <string name="league">Liga</string>
+
+</resources>
