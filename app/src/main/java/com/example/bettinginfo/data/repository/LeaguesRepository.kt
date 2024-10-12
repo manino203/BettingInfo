@@ -18,7 +18,7 @@ class LeaguesRepositoryImpl(
                 it.leagueCupID
             }.distinct().map { leagueId ->
                 League(
-                    offer.labels.values.find { it.id == leagueId }?.name!!,
+                    offer.labels.values.find { it.id == leagueId && it.type == "LC" }?.name ?: "",
                     leagueId
                 )
             }
