@@ -5,9 +5,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.bettinginfo.R
 import com.example.bettinginfo.vm.TopBarUiState
 
@@ -30,4 +32,11 @@ fun TopBar(
         },
         scrollBehavior = scrollBehavior
     )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+@Preview
+private fun TopBarPreview(){
+    TopBar(uiState = TopBarUiState(), scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior())
 }

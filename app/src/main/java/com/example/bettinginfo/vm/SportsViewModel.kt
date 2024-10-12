@@ -14,7 +14,7 @@ import java.io.FileNotFoundException
 import java.io.IOException
 
 @Immutable
-data class MainUiState(
+data class SportsUiState(
     val sports: List<Sport> = emptyList(),
     val error: Int? = null
 )
@@ -22,8 +22,8 @@ data class MainUiState(
 class SportsViewModel(
     private val repo: SportsRepository
 ): ViewModel() {
-    private val _uiState = MutableStateFlow(MainUiState())
-    val uiState: StateFlow<MainUiState>
+    private val _uiState = MutableStateFlow(SportsUiState())
+    val uiState: StateFlow<SportsUiState>
         get() = _uiState.asStateFlow()
 
     init{
