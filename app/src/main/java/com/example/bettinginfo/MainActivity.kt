@@ -8,11 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.ContentTransform
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.calculateEndPadding
-import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
@@ -69,7 +65,6 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                 ) { innerPadding ->
-                    Box(Modifier.padding(top = innerPadding.calculateTopPadding())){
                         AnimatedNavHost(
                             controller = navController,
                             transitionSpec = { action, _, _ ->
@@ -85,20 +80,17 @@ class MainActivity : ComponentActivity() {
                             }
                         ) {
                             NavigationScreen(
-                                navController,
-                                PaddingValues(
-                                    start = innerPadding.calculateStartPadding(LayoutDirection.Ltr),
-                                    end = innerPadding.calculateEndPadding(LayoutDirection.Ltr),
-                                    bottom = innerPadding.calculateBottomPadding()
-                                ),
-                                topBarViewModel,
-                                it
-                            ) {
-                                topBarState.heightOffset = 0f
-                                topBarState.contentOffset = 0f
-                            }
-                        }
+                                navController = navController,
+                                contentPadding = innerPadding,
+                                topBarViewModel = topBarViewModel,
+                                destination = it
+                            )
                     }
+                }
+
+                LaunchedEffect(navController.backstack.entries.lastOrNull()) {
+                    topBarState.heightOffset = 0f
+                    topBarState.contentOffset = 0f
                 }
             }
         }
